@@ -1,0 +1,705 @@
+/* NOTA: Las variables y estilos base globales ahora se importan desde /src/globals/css/tokens.css */
+
+    /* ============================================================
+       LAYOUT PRINCIPAL
+       ============================================================ */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ============================================================
+       SIDEBAR
+       ============================================================ */
+    .sidebar {
+      width: var(--sidebar-ancho);
+      background: var(--bg-sidebar);
+      border-right: 1px solid rgba(119, 141, 169, 0.1);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      z-index: 50;
+      transition: transform 0.3s ease;
+    }
+
+    /* Logo en el sidebar */
+    .sidebar-logo {
+      height: var(--header-alto);
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      border-bottom: 1px solid rgba(119, 141, 169, 0.1);
+      gap: 10px;
+    }
+
+    .sidebar-logo img {
+      height: 28px;
+      width: auto;
+    }
+
+    /* Navegación del sidebar */
+    .sidebar-nav {
+      flex: 1;
+      padding: 1.25rem 0;
+      overflow-y: auto;
+    }
+
+    /* Grupo de menú con etiqueta */
+    .sidebar-grupo {
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-grupo-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(119, 141, 169, 0.5);
+      padding: 0 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Ítems del menú */
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 1.5rem;
+      font-size: 14px;
+      color: rgba(119, 141, 169, 0.8);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+
+    .sidebar-item:hover {
+      color: var(--blanco);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .sidebar-item.activo {
+      color: #fff;
+      background: rgba(128, 0, 32, 0.15);
+      border-left-color: var(--rojo);
+    }
+
+    .sidebar-item svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+
+    .sidebar-item.activo svg { opacity: 1; }
+
+    /* Badge de notificación */
+    .sidebar-badge {
+      margin-left: auto;
+      background: var(--rojo);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 1px 7px;
+      border-radius: 100px;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    /* Pie del sidebar */
+    .sidebar-pie {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid rgba(119, 141, 169, 0.1);
+    }
+
+    .sidebar-usuario {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sidebar-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(128, 0, 32, 0.25);
+      border: 1px solid rgba(128, 0, 32, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      color: #ff8fa3;
+      flex-shrink: 0;
+    }
+
+    .sidebar-usuario-info { flex: 1; min-width: 0; }
+
+    .sidebar-usuario-nombre {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--blanco);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sidebar-usuario-rol {
+      font-size: 11px;
+      color: rgba(119, 141, 169, 0.7);
+    }
+
+    /* ============================================================
+       ÁREA PRINCIPAL (derecha del sidebar)
+       ============================================================ */
+    .main {
+      flex: 1;
+      margin-left: var(--sidebar-ancho);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ============================================================
+       HEADER
+       ============================================================ */
+    .header {
+      height: var(--header-alto);
+      background: var(--bg-header);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--borde);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      transition: background 0.3s;
+    }
+
+    /* Lado izquierdo del header */
+    .header-izq {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Botón hamburguesa para móvil */
+    .header-hamburguesa {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--texto-secundario);
+    }
+
+    .header-hamburguesa svg { width: 22px; height: 22px; }
+
+    /* Breadcrumb / título de sección */
+    .header-seccion {
+      font-size: 14px;
+      color: var(--texto-secundario);
+    }
+
+    .header-seccion span {
+      color: var(--texto-primario);
+      font-weight: 500;
+    }
+
+    /* Lado derecho del header */
+    .header-der {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Botón toggle tema */
+    .toggle-tema {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--borde);
+      background: var(--bg-tarjeta);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: background 0.2s, border-color 0.2s;
+      color: var(--texto-secundario);
+    }
+
+    .toggle-tema:hover {
+      background: rgba(119, 141, 169, 0.2);
+      border-color: rgba(119, 141, 169, 0.35);
+    }
+
+    /* Botón notificaciones */
+    .header-notif {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--borde);
+      background: var(--bg-tarjeta);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .header-notif:hover { background: rgba(119, 141, 169, 0.2); }
+
+    .header-notif svg { width: 18px; height: 18px; color: var(--texto-secundario); }
+
+    .header-notif-punto {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--rojo);
+      border: 1.5px solid var(--bg-header);
+    }
+
+    /* Separador vertical */
+    .header-sep {
+      width: 1px;
+      height: 24px;
+      background: var(--borde);
+    }
+
+    /* Avatar / perfil en el header */
+    .header-perfil {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .header-perfil:hover { background: var(--bg-tarjeta); }
+
+    .header-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(128, 0, 32, 0.25);
+      border: 1px solid rgba(128, 0, 32, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 500;
+      color: #ff8fa3;
+    }
+
+    .header-perfil-info { line-height: 1.2; }
+
+    .header-perfil-nombre {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--texto-primario);
+    }
+
+    .header-perfil-rol {
+      font-size: 11px;
+      color: var(--texto-secundario);
+    }
+
+    .header-perfil svg {
+      width: 14px;
+      height: 14px;
+      color: var(--texto-secundario);
+    }
+
+    /* ============================================================
+       CONTENIDO DEL DASHBOARD
+       ============================================================ */
+    .contenido {
+      flex: 1;
+      padding: 2rem;
+      background: var(--bg-principal);
+      transition: background 0.3s;
+    }
+
+    /* Encabezado de página */
+    .pagina-header {
+      margin-bottom: 2rem;
+    }
+
+    .pagina-titulo {
+      font-family: var(--fuente-titulo);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--texto-primario);
+      margin-bottom: 0.25rem;
+    }
+
+    .pagina-subtitulo {
+      font-size: 14px;
+      color: var(--texto-secundario);
+    }
+
+    /* ============================================================
+       TARJETAS DE ESTADÍSTICAS
+       ============================================================ */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--bg-tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .stat-card:hover {
+      border-color: rgba(128, 0, 32, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .stat-card-label {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--texto-secundario);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card-valor {
+      font-family: var(--fuente-titulo);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--texto-primario);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-card-sub {
+      font-size: 12px;
+      color: var(--texto-secundario);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .stat-card-sub.positivo { color: #4ade80; }
+    .stat-card-sub.alerta   { color: #ff8fa3; }
+
+    /* Icono de la tarjeta */
+    .stat-card-icono {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(128, 0, 32, 0.15);
+      border: 1px solid rgba(128, 0, 32, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    /* ============================================================
+       GRID INFERIOR
+       ============================================================ */
+    .grid-inferior {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 1.5rem;
+    }
+
+    /* Tabla de procesos recientes */
+    .tabla-card {
+      background: var(--bg-tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .tabla-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .tabla-card-titulo {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--texto-primario);
+    }
+
+    .tabla-card-accion {
+      font-size: 12px;
+      color: var(--rojo);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .tabla-card-accion:hover { text-decoration: underline; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead th {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--texto-secundario);
+      padding: 10px 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid var(--borde);
+      background: rgba(65, 90, 119, 0.06);
+    }
+
+    tbody td {
+      font-size: 13px;
+      color: var(--texto-primario);
+      padding: 12px 1.5rem;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    tbody tr:hover td { background: rgba(65, 90, 119, 0.06); }
+
+    /* Badges de estado */
+    .badge {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .badge-activo   { background: rgba(128,0,32,0.2);  color: #ff8fa3; }
+    .badge-revision { background: rgba(65,90,119,0.35); color: #9bb5d4; }
+    .badge-cerrado  { background: rgba(119,141,169,0.2);color: #a0aec0; }
+    .badge-urgente  { background: rgba(250,120,0,0.2);  color: #fdba74; }
+
+    /* ============================================================
+       PANEL LATERAL — próximas fechas
+       ============================================================ */
+    .panel-lateral {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .panel-card {
+      background: var(--bg-tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .panel-card-header {
+      padding: 1.25rem 1.5rem 0.75rem;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .panel-card-titulo {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--texto-primario);
+    }
+
+    .evento-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 1.5rem;
+      border-bottom: 1px solid var(--borde);
+      transition: background 0.15s;
+    }
+
+    .evento-item:last-child { border-bottom: none; }
+    .evento-item:hover { background: rgba(65, 90, 119, 0.06); }
+
+    .evento-fecha {
+      text-align: center;
+      min-width: 36px;
+    }
+
+    .evento-dia {
+      font-family: var(--fuente-titulo);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--rojo);
+      line-height: 1;
+    }
+
+    .evento-mes {
+      font-size: 10px;
+      color: var(--texto-secundario);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .evento-info { flex: 1; min-width: 0; }
+
+    .evento-nombre {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--texto-primario);
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .evento-caso {
+      font-size: 11px;
+      color: var(--texto-secundario);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .grid-inferior {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+
+      .sidebar.abierto {
+        transform: translateX(0);
+      }
+
+      .main {
+        margin-left: 0;
+      }
+
+      .header-hamburguesa {
+        display: flex;
+      }
+
+      .header-perfil-info {
+        display: none;
+      }
+
+      .contenido {
+        padding: 1.25rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================================
+       OVERLAY MÓVIL
+       ============================================================ */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 40;
+    }
+
+    .sidebar-overlay.visible { display: block; }
+
+    /* ============================================================
+   BOTÓN CERRAR SESIÓN HEADER
+   ============================================================ */
+
+.btn-cerrar-sesion2{
+  background: #a61d1d;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-cerrar-sesion2:hover{
+  background: #c62828;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   ESTADOS DE CARGA Y ERROR (Navegación SPA)
+   ============================================================ */
+.estado-carga {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: var(--texto-secundario);
+  font-size: 14px;
+  gap: 12px;
+}
+
+.estado-carga::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(119, 141, 169, 0.2);
+  border-top-color: var(--rojo);
+  border-radius: 50%;
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+.estado-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #ff8fa3;
+  background: rgba(128, 0, 32, 0.05);
+  border: 1px dashed rgba(128, 0, 32, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  font-size: 15px;
+  gap: 10px;
+}
+
+.estado-error svg {
+  width: 32px;
+  height: 32px;
+  color: #ff8fa3;
+}

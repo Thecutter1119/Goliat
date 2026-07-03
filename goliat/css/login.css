@@ -1,0 +1,344 @@
+/* NOTA: Las variables y estilos base globales ahora se importan desde /src/globals/css/tokens.css */
+:root {
+  /* Mapeo de variables locales a globales para compatibilidad */
+  --color-fondo-pagina: var(--bg-principal);
+  --color-fondo-tarjeta: var(--bg-tarjeta);
+  --color-fondo-campo: var(--bg-principal);
+  --color-borde: var(--borde);
+  --color-borde-activo: var(--azul-medio);
+  --color-texto-principal: var(--texto-primario);
+  --color-texto-secundario: var(--texto-secundario);
+  --color-texto-tenue: var(--azul-claro);
+  --color-boton-fondo: var(--rojo);
+  --color-boton-texto: #FFFFFF;
+  --color-boton-fondo-hover: var(--rojo-oscuro);
+
+  --radio-medio: 8px;
+  --radio-grande: 12px;
+}
+
+body {
+  font-family: var(--fuente-cuerpo);
+  background-image: radial-gradient(rgba(65, 90, 119, 0.6) 1px, transparent 1px);
+  background-size: 24px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  min-height: 100vh;
+}
+
+
+
+
+.tarjeta-sesion {
+  background: var(--color-fondo-tarjeta);
+  border: 0.5px solid var(--color-borde);
+  border-radius: var(--radio-grande);
+  padding: 2rem 2.25rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.contenedor-logo {
+  border: 2px solid var(--color-borde);
+  border-radius: 10px;
+  width: 200px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  margin: 0 auto 1.25rem;
+}
+
+.contenedor-logo img {
+  margin-top: 7px;
+  width: 150px;
+  height: auto;
+}
+
+/* Mostrar/Ocultar logo según el tema */
+.logo-claro {
+  display: none;
+}
+
+html.modo-claro .logo-oscuro {
+  display: none;
+}
+
+html.modo-claro .logo-claro {
+  display: block;
+}
+
+
+/* ============================================================
+       TÍTULO Y DESCRIPCIÓN
+       ============================================================ */
+.titulo-sesion {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-texto-principal);
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.descripcion-sesion {
+  font-size: 13px;
+  color: var(--color-texto-secundario);
+  line-height: 1.5;
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+
+
+/* ============================================================
+       GRUPOS DE CAMPO — cada etiqueta + input + ayuda va aquí
+       ============================================================ */
+.grupo-campo {
+  margin-bottom: 1rem;
+  /* espacio entre campos */
+}
+
+/* Etiqueta (texto encima del input) */
+.etiqueta-campo {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-texto-secundario);
+  margin-bottom: 6px;
+}
+
+/* Input de texto / contraseña */
+.entrada-campo {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px;
+  font-size: 14px;
+  font-family: var(--fuente);
+  background: var(--color-fondo-campo);
+  border: 0.5px solid var(--color-borde);
+  border-radius: var(--radio-medio);
+  color: var(--color-texto-principal);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+/* Estado: hover (al pasar el mouse) */
+.entrada-campo:hover {
+  border-color: var(--color-borde-activo);
+}
+
+/* Estado: enfocado (al hacer clic en el campo) */
+.entrada-campo:focus {
+  border-color: var(--color-borde-activo);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+/* Texto placeholder (lo que aparece cuando el campo está vacío) */
+.entrada-campo::placeholder {
+  color: var(--color-texto-tenue);
+}
+
+/* Texto de ayuda debajo del input */
+.ayuda-campo {
+  font-size: 12px;
+  color: var(--color-texto-tenue);
+  margin-top: 4px;
+}
+
+/* ============================================================
+   ENLACE OLVIDÉ MI CONTRASEÑA
+   ============================================================ */
+.grupo-olvidar {
+  text-align: center;
+  /* cámbialo a "left" o "center" si prefieres */
+  margin-top: -4px;
+  /* acerca el enlace al campo de contraseña */
+  margin-bottom: 4px;
+}
+
+.enlace-olvidar {
+  font-size: 12px;
+  color: var(--color-texto-secundario);
+  text-decoration: none;
+}
+
+.enlace-olvidar:hover {
+  color: var(--color-texto-principal);
+}
+
+.contenedor-captcha {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  /* centra el captcha en la tarjeta */
+}
+
+/* ============================================================
+       BOTÓN PRINCIPAL
+       ============================================================ */
+.boton-ingresar {
+  display: block;
+  width: 100%;
+  height: 38px;
+  margin-top: 1.25rem;
+  background: var(--color-boton-fondo);
+  color: var(--color-boton-texto);
+  border: none;
+  border-radius: var(--radio-medio);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--fuente);
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.boton-ingresar:hover {
+  opacity: 0.82;
+  /* oscurece ligeramente al pasar el mouse */
+}
+
+.boton-ingresar:active {
+  transform: scale(0.98);
+  /* pequeño "clic" visual */
+}
+
+
+/* ============================================================
+       SEPARADOR HORIZONTAL
+       ============================================================ */
+.linea-separadora {
+  border: none;
+  border-top: 0.5px solid var(--color-borde);
+  margin: 1.5rem 0 1rem;
+}
+
+
+/* ============================================================
+       PIE DEL FORMULARIO — enlace de registro
+       ============================================================ */
+.pie-formulario {
+  font-size: 12px;
+  color: var(--color-texto-tenue);
+  text-align: center;
+}
+
+.pie-formulario a {
+  color: var(--color-texto-secundario);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.pie-formulario a:hover {
+  color: var(--color-texto-principal);
+}
+
+
+/* ============================================================
+       NOTIFICACION — mensaje temporal de confirmación/error
+       ============================================================ */
+.notificacion {
+  position: fixed;
+  /* flota sobre todo el contenido */
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--color-boton-fondo);
+  color: var(--color-boton-texto);
+  font-size: 13px;
+  font-family: var(--fuente);
+  padding: 9px 20px;
+  border-radius: var(--radio-medio);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+
+/* Clase que JS agrega para mostrar la notificación */
+.notificacion.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+
+
+/* ============================================================
+       RESPONSIVE — ajustes para pantallas pequeñas
+       ============================================================ */
+@media (max-width: 440px) {
+  .tarjeta-sesion {
+    padding: 1.5rem 1.25rem;
+    /* menos padding en móvil */
+  }
+}
+
+/* ============================================================
+   PRECARGADOR
+   ============================================================ */
+.precargador-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-fondo-pagina);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.precargador-overlay.activo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.precargador-contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 260px;
+}
+
+.precargador-logo {
+  width: 160px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.precargador-barra-fondo {
+  width: 100%;
+  height: 6px;
+  background: var(--color-borde);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.precargador-barra-progreso {
+  height: 100%;
+  width: 0%;
+  background: var(--color-boton-fondo);
+  border-radius: 10px;
+  transition: width 3s linear;
+}
+
+.precargador-texto {
+  font-size: 13px;
+  color: var(--color-texto-secundario);
+  font-weight: 500;
+  animation: pulsoTexto 1.5s infinite;
+}
+
+@keyframes pulsoTexto {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}

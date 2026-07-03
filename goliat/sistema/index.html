@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goliat — Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ============================================================
+       SIDEBAR
+       ============================================================ -->
+  <aside class="sidebar" id="sidebar">
+
+    <!-- Logo -->
+    <div class="sidebar-logo">
+      <!-- CAMBIA las rutas de las imágenes según tu proyecto -->
+      <img src="../img/goliatletraoscura.png" alt="Goliat" class="logo-oscuro">
+      <img src="../img/logo-goliat.png"  alt="Goliat" class="logo-claro" style="display:none;">
+    </div>
+
+    <!-- Navegación -->
+    <nav class="sidebar-nav">
+
+      <!-- GRUPO 1: Principal -->
+      <div class="sidebar-grupo">
+        <div class="sidebar-grupo-label">Principal</div>
+
+        <!-- ÍTEM ACTIVO — agrega o quita la clase "activo" según la página actual -->
+        <a href="#" class="sidebar-item activo" id="btnDashboard">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          Panel General
+        </a>
+
+        <a href="#" class="sidebar-item" id="btnProcesos">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Mis Procesos
+          <!-- BADGE — muestra número de ítems pendientes, quita si no aplica -->
+          <span class="sidebar-badge">24</span>
+        </a>
+
+
+        <a href="#" class="sidebar-item" id="btnAgenda">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          Agenda
+          <span class="sidebar-badge">7</span>
+        </a>
+      </div>
+
+      <!-- GRUPO 2: Gestión -->
+      <div class="sidebar-grupo">
+        <div class="sidebar-grupo-label">Gestión</div>
+
+        <a href="#" class="sidebar-item" id="btonDocumentos">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+          Documentos
+        </a>
+
+        <a href="#" class="sidebar-item" id="btnPersonas">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766v-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+          Personas
+        </a>
+      </div>
+
+      <!-- GRUPO 3: Configuración -->
+      <div class="sidebar-grupo">
+        <div class="sidebar-grupo-label">Sistema</div>
+
+        <a href="#" class="sidebar-item" id="btnConfiguracion">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Configuración
+        </a>
+
+      
+      </div>
+
+    </nav>
+</nav>
+
+<!-- BOTÓN FINAL SIDEBAR -->
+<div class="sidebar-footer">
+
+  <a href="#" class="sidebar-item cerrar-sesion" id="btnCerrarSesion">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round"
+      d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+    </svg>
+
+    Cerrar sesión
+  </a>
+
+</div>
+ 
+
+  </aside>
+
+  <!-- Overlay para cerrar sidebar en móvil -->
+  <div class="sidebar-overlay" id="overlay"></div>
+
+
+  <!-- ============================================================
+       ÁREA PRINCIPAL
+       ============================================================ -->
+  <div class="main">
+
+    <!-- HEADER -->
+    <header class="header">
+
+      <div class="header-izq">
+        <!-- Botón hamburguesa — solo visible en móvil -->
+        <button class="header-hamburguesa" id="btnHamburguesa" aria-label="Abrir menú">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+
+        <!-- Breadcrumb — CAMBIA "Dashboard" por el nombre de la sección activa -->
+        <div class="header-seccion">
+          Goliat · <span>Dashboard</span>
+        </div>
+      </div>
+
+      <div class="header-der">
+
+        <!-- Toggle claro/oscuro -->
+        <button class="toggle-tema" id="toggleTema" aria-label="Cambiar tema">
+          <span id="iconoTema">☀️</span>
+        </button>
+
+        <!-- Notificaciones -->
+        <button class="header-notif" aria-label="Notificaciones">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          <span class="header-notif-punto"></span>
+        </button>
+
+        <div class="header-sep"></div>
+
+        <!-- Perfil del usuario -->
+        <div class="header-perfil">
+
+  <div class="header-avatar">AB</div>
+
+  <div class="header-perfil-info">
+    <div class="header-perfil-nombre">Abogado Ejemplo</div>
+    <div class="header-perfil-rol">Administrador</div>
+  </div>
+
+
+
+</div>
+
+    </header>
+
+
+    <!-- CONTENIDO -->
+    <main class="contenido" id="contenido-principal">
+
+      <!-- Encabezado de página -->
+      <div class="pagina-header">
+        <!-- CAMBIA el título y subtítulo según la sección -->
+        <h1 class="pagina-titulo">Dashboard</h1>
+        <p class="pagina-subtitulo">Resumen general de procesos y actividad reciente.</p>
+      </div>
+
+      <!-- TARJETAS DE ESTADÍSTICAS — cambia números y etiquetas -->
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <div class="stat-card-icono">⚖️</div>
+          <div class="stat-card-label">Procesos activos</div>
+          <div class="stat-card-valor">24</div>
+          <div class="stat-card-sub positivo">↑ 3 nuevos este mes</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-icono">📅</div>
+          <div class="stat-card-label">Audiencias prox</div>
+          <div class="stat-card-valor">8</div>
+          <div class="stat-card-sub alerta">⚠ 2 esta semana</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-icono">📂</div>
+          <div class="stat-card-label">Documentos Pendientes</div>
+          <div class="stat-card-valor">37</div>
+          <div class="stat-card-sub positivo">↑ 5 este mes</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-icono">✅</div>
+          <div class="stat-card-label">Cerrados este año</div>
+          <div class="stat-card-valor">142</div>
+          <div class="stat-card-sub">Total acumulado</div>
+        </div>
+
+      </div>
+
+      <!-- GRID INFERIOR -->
+      <div class="grid-inferior">
+
+        <!-- Tabla de procesos recientes -->
+        <div class="tabla-card">
+          <div class="tabla-card-header">
+            <div class="tabla-card-titulo">Procesos recientes</div>
+            <a href="#" class="tabla-card-accion">Ver todos →</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Caso</th>
+                <th>Cliente</th>
+                <th>Tipo</th>
+                <th>Estado</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- CAMBIA estos datos por los reales de tu sistema -->
+              <tr>
+                <td>#2024-081</td>
+                <td>Juan Pérez</td>
+                <td>Civil</td>
+                <td><span class="badge badge-activo">En curso</span></td>
+                <td>15 Mar</td>
+              </tr>
+              <tr>
+                <td>#2024-079</td>
+                <td>Empresa SAS</td>
+                <td>Mercantil</td>
+                <td><span class="badge badge-revision">Revisión</span></td>
+                <td>12 Mar</td>
+              </tr>
+              <tr>
+                <td>#2024-076</td>
+                <td>María López</td>
+                <td>Laboral</td>
+                <td><span class="badge badge-activo">En curso</span></td>
+                <td>08 Mar</td>
+              </tr>
+              <tr>
+                <td>#2024-074</td>
+                <td>Carlos Ruiz</td>
+                <td>Familia</td>
+                <td><span class="badge badge-urgente">Urgente</span></td>
+                <td>05 Mar</td>
+              </tr>
+              <tr>
+                <td>#2024-071</td>
+                <td>Ana Torres</td>
+                <td>Sucesión</td>
+                <td><span class="badge badge-cerrado">Cerrado</span></td>
+                <td>01 Mar</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Panel lateral: próximas audiencias -->
+        <div class="panel-lateral">
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div class="panel-card-titulo">Próximas audiencias</div>
+            </div>
+
+            <!-- CAMBIA estas fechas y datos por los reales -->
+            <div class="evento-item">
+              <div class="evento-fecha">
+                <div class="evento-dia">18</div>
+                <div class="evento-mes">Mar</div>
+              </div>
+              <div class="evento-info">
+                <div class="evento-nombre">Audiencia inicial</div>
+                <div class="evento-caso">Caso #2024-081 · 9:00 AM</div>
+              </div>
+            </div>
+
+            <div class="evento-item">
+              <div class="evento-fecha">
+                <div class="evento-dia">21</div>
+                <div class="evento-mes">Mar</div>
+              </div>
+              <div class="evento-info">
+                <div class="evento-nombre">Entrega de pruebas</div>
+                <div class="evento-caso">Caso #2024-074 · 2:00 PM</div>
+              </div>
+            </div>
+
+            <div class="evento-item">
+              <div class="evento-fecha">
+                <div class="evento-dia">25</div>
+                <div class="evento-mes">Mar</div>
+              </div>
+              <div class="evento-info">
+                <div class="evento-nombre">Fallo de primera instancia</div>
+                <div class="evento-caso">Caso #2024-076 · 10:30 AM</div>
+              </div>
+            </div>
+
+            <div class="evento-item">
+              <div class="evento-fecha">
+                <div class="evento-dia">02</div>
+                <div class="evento-mes">Abr</div>
+              </div>
+              <div class="evento-info">
+                <div class="evento-nombre">Conciliación</div>
+                <div class="evento-caso">Caso #2024-079 · 3:00 PM</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goliat — Gestión de Procesos Legales</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+
+<body>
+
+  <!-- ============================================================
+       BARRA DE NAVEGACIÓN
+       ============================================================ -->
+  <nav class="nav">
+    <div class="nav-contenido">
+
+      <!-- NOMBRE DEL SOFTWARE — cambia "LexControl" por el tuyo -->
+      <a href="#inicio" class="nav-logo">
+        <img src="img/goliatletraoscura.png" alt="logo-oscuro" height="32" class="logo-oscuro">
+        <img src="img/logo-goliat.png" alt="logo-claro" height="32" class="logo-claro">
+      </a>
+      <!-- ENLACES DEL NAV — agrega o quita los que necesites -->
+      <ul class="nav-enlaces">
+        <li><a href="#caracteristicas">Características</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <!-- Botón que lleva al login.html — asegúrate de que estén en la misma carpeta -->
+        <li><a href="login/login.php" class="nav-boton" target="_blank">Iniciar sesión</a></li>
+      </ul>
+
+      <div class="sesion-tema">
+        <li>
+          <button class="nav-toggle-tema" id="toggleTema" aria-label="Cambiar tema">
+            <span class="icono-tema">☀️</span>
+          </button>
+        </li>
+
+      </div>
+      <!-- Botón hamburguesa para móvil (opcional, requiere JS para abrir el menú) -->
+      <button class="nav-hamburguesa" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       SECCIÓN HERO — primera impresión del software
+       ============================================================ -->
+  <section class="hero" id="inicio">
+    <div class="hero-contenido">
+
+      <!-- Columna izquierda: texto -->
+      <div>
+        <!-- ETIQUETA — cambia el texto aquí -->
+        <div class="hero-etiqueta">Software legal · Gestión de procesos</div>
+
+        <!-- TÍTULO PRINCIPAL — cambia el texto aquí -->
+        <h1 class="hero-titulo">
+          Gestión de procesos <br>
+          <span>legales</span> sin<br>
+          complicaciones
+        </h1>
+
+        <!-- DESCRIPCIÓN — cambia el texto aquí -->
+        <p class="hero-descripcion">
+          Centraliza, organiza y da seguimiento a todos tus procesos legales
+          desde un solo lugar. Diseñado para abogados y firmas que buscan
+          eficiencia real.
+        </p>
+
+        <!-- BOTONES — el primero lleva al login, el segundo a características -->
+        <div class="hero-botones">
+          <a href="#contacto" class="boton-primario">
+            <!-- Flecha SVG decorativa -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            Contactanos
+          </a>
+          <a href="#caracteristicas" class="boton-secundario">Ver características</a>
+        </div>
+      </div>
+
+      <!-- Columna derecha: mockup del software -->
+      <div class="hero-mockup">
+        <div class="mockup-tarjeta">
+
+          <!-- Barra superior del mockup (simula ventana de app) -->
+          <div class="mockup-barra">
+            <div class="mockup-circulo" style="background:#800020;"></div>
+            <div class="mockup-circulo" style="background:#415A77;"></div>
+            <div class="mockup-circulo" style="background:#778DA9;"></div>
+            <span style="font-size:12px; color:#778DA9; margin-left:8px;">Procesos activos</span>
+          </div>
+
+          <!-- FILAS DEL MOCKUP — cambia los textos por casos reales de ejemplo -->
+          <div class="mockup-fila">
+            <span class="mockup-estado estado-activo">En curso</span>
+            <span class="mockup-texto">Demanda civil · Caso #2024-081</span>
+            <span class="mockup-fecha">15 Mar</span>
+          </div>
+          <div class="mockup-fila">
+            <span class="mockup-estado estado-revision">Revisión</span>
+            <span class="mockup-texto">Contrato mercantil · Caso #2024-079</span>
+            <span class="mockup-fecha">12 Mar</span>
+          </div>
+          <div class="mockup-fila">
+            <span class="mockup-estado estado-activo">En curso</span>
+            <span class="mockup-texto">Proceso laboral · Caso #2024-076</span>
+            <span class="mockup-fecha">08 Mar</span>
+          </div>
+          <div class="mockup-fila">
+            <span class="mockup-estado estado-cerrado">Cerrado</span>
+            <span class="mockup-texto">Sucesión · Caso #2024-071</span>
+            <span class="mockup-fecha">01 Mar</span>
+          </div>
+
+          <!-- ESTADÍSTICAS DEL MOCKUP — cambia los números aquí -->
+          <div class="mockup-stats">
+            <div class="mockup-stat">
+              <div class="mockup-stat-numero">24</div>
+              <div class="mockup-stat-label">Activos</div>
+            </div>
+            <div class="mockup-stat">
+              <div class="mockup-stat-numero">8</div>
+              <div class="mockup-stat-label">Pendientes</div>
+            </div>
+            <div class="mockup-stat">
+              <div class="mockup-stat-numero">142</div>
+              <div class="mockup-stat-label">Cerrados</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECCIÓN CARACTERÍSTICAS
+       Agrega o quita tarjetas según las funciones de tu software
+       ============================================================ -->
+  <section class="seccion-caracteristicas" id="caracteristicas">
+    <div class="contenedor">
+
+      <div class="seccion-encabezado">
+        <div class="seccion-linea"></div>
+        <!-- TÍTULO — cambia el texto aquí -->
+        <h2 class="seccion-titulo">Todo lo que necesitas en un solo lugar</h2>
+        <!-- SUBTÍTULO — cambia el texto aquí -->
+        <p class="seccion-subtitulo">
+          Herramientas pensadas para el trabajo legal del día a día,
+          sin curvas de aprendizaje innecesarias.
+        </p>
+      </div>
+
+      <div class="grid-caracteristicas">
+
+        <!-- TARJETA 1 — cambia ícono, título y descripción -->
+        <div class="tarjeta-caracteristica">
+          <div class="caracteristica-icono">⚖️</div>
+          <h3 class="caracteristica-titulo">Gestión de procesos</h3>
+          <p class="caracteristica-descripcion">
+            Registra y organiza todos tus casos legales con estados,
+            fechas clave y documentos adjuntos en un solo expediente digital.
+          </p>
+        </div>
+
+        <!-- TARJETA 2 — cambia ícono, título y descripción -->
+        <div class="tarjeta-caracteristica">
+          <div class="caracteristica-icono">📅</div>
+          <h3 class="caracteristica-titulo">Agenda de vencimientos</h3>
+          <p class="caracteristica-descripcion">
+            Recibe alertas automáticas de fechas de audiencias, vencimientos
+            de términos y plazos procesales para nunca perder una cita.
+          </p>
+        </div>
+
+        <!-- TARJETA 3 — cambia ícono, título y descripción -->
+        <div class="tarjeta-caracteristica">
+          <div class="caracteristica-icono">📁</div>
+          <h3 class="caracteristica-titulo">Gestión documental</h3>
+          <p class="caracteristica-descripcion">
+            Almacena contratos, poderes, resoluciones y escritos organizados
+            por caso. Búsqueda rápida por nombre, fecha o tipo de documento.
+          </p>
+        </div>
+
+        <!-- TARJETA 4 — cambia ícono, título y descripción -->
+        <div class="tarjeta-caracteristica">
+          <div class="caracteristica-icono">👥</div>
+          <h3 class="caracteristica-titulo">Gestión de clientes</h3>
+          <p class="caracteristica-descripcion">
+            Base de datos de clientes con historial completo de casos,
+            datos de contacto y seguimiento de comunicaciones.
+          </p>
+        </div>
+
+        <!-- TARJETA 5 — cambia ícono, título y descripción -->
+        <div class="tarjeta-caracteristica">
+          <div class="caracteristica-icono">📊</div>
+          <h3 class="caracteristica-titulo">Reportes e informes</h3>
+          <p class="caracteristica-descripcion">
+            Generacion de reportes de seguimiento, de los procesos activos y versionamiento de actualizaciones.
+          </p>
+        </div>
+
+        <!-- TARJETA 6 — cambia ícono, título y descripción -->
+        <div class="tarjeta-caracteristica">
+          <div class="caracteristica-icono">🔒</div>
+          <h3 class="caracteristica-titulo">Seguridad y privacidad</h3>
+          <p class="caracteristica-descripcion">
+            Acceso por roles, cifrado de datos y registro de actividad
+            para proteger la confidencialidad de tus clientes.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECCIÓN BENEFICIOS — números e impacto del software
+       ============================================================ -->
+  <section class="seccion-beneficios" id="beneficios">
+    <div class="contenedor">
+      <div class="beneficios-grid">
+
+        <!-- Columna izquierda: lista de beneficios -->
+        <div>
+          <div class="seccion-linea"></div>
+          <!-- TÍTULO — cambia el texto aquí -->
+          <h2 class="seccion-titulo" style="margin-bottom:2rem;">
+            Menos tiempo administrativo,<br>más tiempo para tus clientes.
+          </h2>
+
+          <!-- BENEFICIO 1 — cambia número, título y texto -->
+          <div class="beneficio-item">
+            <div class="beneficio-numero">3×</div>
+            <div class="beneficio-titulo">Más productividad por caso</div>
+            <p class="beneficio-texto">
+              Reduce el tiempo de gestión documental y seguimiento con flujos automatizados.
+            </p>
+          </div>
+
+          <!-- BENEFICIO 2 — cambia número, título y texto -->
+          <div class="beneficio-item">
+            <div class="beneficio-numero">0</div>
+            <div class="beneficio-titulo">Vencimientos perdidos</div>
+            <p class="beneficio-texto">
+              El sistema de alertas garantiza que ningún plazo procesal quede sin atender.
+            </p>
+          </div>
+
+          <!-- BENEFICIO 3 — cambia número, título y texto -->
+          <div class="beneficio-item">
+            <div class="beneficio-numero">100%</div>
+            <div class="beneficio-titulo">Expedientes digitales</div>
+            <p class="beneficio-texto">
+              Elimina el papel y accede a cualquier caso desde cualquier dispositivo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Columna derecha: estadísticas grandes -->
+        <div class="beneficios-imagen">
+
+          <!-- ESTADÍSTICA 1 — cambia el número y descripción -->
+          <div class="stat-grande">
+            <div class="stat-valor">+<span>500</span></div>
+            <div class="stat-descripcion">Abogados usando la plataforma</div>
+          </div>
+
+          <!-- ESTADÍSTICA 2 — cambia el número y descripción -->
+          <div class="stat-grande">
+            <div class="stat-valor"><span>12.000</span>+</div>
+            <div class="stat-descripcion">Procesos gestionados este año</div>
+          </div>
+
+          <!-- ESTADÍSTICA 3 — cambia el número y descripción -->
+          <div class="stat-grande">
+            <div class="stat-valor"><span>98</span>%</div>
+            <div class="stat-descripcion">Satisfacción de clientes</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECCIÓN PRECIOS — planes disponibles
+       Agrega o quita tarjetas según tus planes reales
+       ============================================================ -->
+  <section class="seccion-precios" id="precios">
+    <div class="contenedor">
+
+      <div class="seccion-encabezado">
+        <div class="seccion-linea"></div>
+        <!-- TÍTULO — cambia el texto aquí -->
+        <h2 class="seccion-titulo">Planes a tu medida</h2>
+        <!-- SUBTÍTULO — cambia el texto aquí -->
+        <p class="seccion-subtitulo">Sin contratos largos. Cancela cuando quieras.</p>
+      </div>
+
+      <div class="grid-precios">
+
+        <!-- PLAN BÁSICO — cambia nombre, precio y lista de características -->
+        <div class="tarjeta-precio">
+          <div class="precio-plan">Básico</div>
+          <div class="precio-valor">$49</div>
+          <div class="precio-periodo">/ mes por usuario</div>
+          <ul class="precio-lista">
+            <li>Hasta 50 procesos activos</li>
+            <li>Gestión documental básica</li>
+            <li>Agenda de vencimientos</li>
+            <li>Soporte por correo</li>
+            <li></li>
+          </ul>
+          <a href="../auth/login/index.html" class="precio-boton precio-boton-secundario">Empezar gratis</a>
+        </div>
+
+        <!-- PLAN PROFESIONAL (destacado) — cambia nombre, precio y lista -->
+        <div class="tarjeta-precio destacado">
+          <div class="precio-badge">Más popular</div>
+          <div class="precio-plan">Profesional</div>
+          <div class="precio-valor">$99</div>
+          <div class="precio-periodo">/ mes por usuario</div>
+          <ul class="precio-lista">
+            <li>Procesos ilimitados</li>
+            <li>Gestión documental avanzada</li>
+            <li>Reportes e informes</li>
+            <li>Gestión de clientes</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <a href="../auth/login/index.html" class="precio-boton precio-boton-primario">Comenzar ahora</a>
+        </div>
+
+        <!-- PLAN FIRMA — cambia nombre, precio y lista -->
+        <div class="tarjeta-precio">
+          <div class="precio-plan">Firma</div>
+          <div class="precio-valor">$199</div>
+          <div class="precio-periodo">/ mes · usuarios ilimitados</div>
+          <ul class="precio-lista">
+            <li>Todo lo del plan Profesional</li>
+            <li>Usuarios ilimitados</li>
+            <li>Gestión por roles</li>
+            <li>API e integraciones</li>
+            <li>Gerente de cuenta dedicado</li>
+          </ul>
+          <a href="../auth/login/index.html" class="precio-boton precio-boton-secundario">Contactar ventas</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     SECCIÓN CONTACTO — formulario de adquisición
+     ============================================================ -->
+  <section class="seccion-contacto" id="contacto">
+    <div class="contenedor">
+
+      <div class="seccion-encabezado">
+        <div class="seccion-linea"></div>
+        <h2 class="seccion-titulo">¿Listo para empezar?</h2>
+        <p class="seccion-subtitulo">
+          Cuéntanos sobre tu firma y te mostramos cómo Goliat
+          se adapta a tu operación. Sin compromisos.
+        </p>
+      </div>
+
+      <div class="contacto-grid" id="contacto-grid">
+
+        <!-- Columna izquierda: confianza -->
+        <div class="contacto-info">
+          <ul class="contacto-lista">
+            <li>✅ Respuesta en menos de 24 horas</li>
+            <li>✅ Demo personalizada sin costo</li>
+            <li>✅ Implementación acompañada</li>
+            <li>✅ Sin tarjeta de crédito para empezar</li>
+          </ul>
+          <div class="contacto-stats">
+            <div class="contacto-stat">
+              <div class="contacto-stat-numero">+500</div>
+              <div class="contacto-stat-label">abogados activos</div>
+            </div>
+            <div class="contacto-stat">
+              <div class="contacto-stat-numero">98%</div>
+              <div class="contacto-stat-label">satisfacción</div>
+            </div>
+            <div class="contacto-stat">
+              <div class="contacto-stat-numero">&lt;1 día</div>
+              <div class="contacto-stat-label">tiempo de respuesta</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: formulario -->
+        <div class="contacto-formulario">
+          <div class="contacto-fila-dos">
+            <div class="campo-grupo">
+              <label for="c-nombre">Nombre</label>
+              <input type="text" id="c-nombre" placeholder="Ana" />
+            </div>
+            <div class="campo-grupo">
+              <label for="c-apellido">Apellido</label>
+              <input type="text" id="c-apellido" placeholder="García" />
+            </div>
+          </div>
+          <div class="campo-grupo">
+            <label for="c-email">Correo empresarial</label>
+            <input type="email" id="c-email" placeholder="ana@tufirma.com" />
+          </div>
+          <div class="contacto-fila-dos">
+            <div class="campo-grupo">
+              <label for="c-firma">Firma / Empresa</label>
+              <input type="text" id="c-firma" placeholder="Mi Firma Legal" />
+            </div>
+            <div class="campo-grupo">
+              <label for="c-tamano">Tamaño del equipo</label>
+              <select id="c-tamano">
+                <option value="">Seleccionar</option>
+                <option>1 – 5 abogados</option>
+                <option>6 – 20 abogados</option>
+                <option>21 – 50 abogados</option>
+                <option>50+ abogados</option>
+              </select>
+            </div>
+          </div>
+          <div class="campo-grupo">
+            <label for="c-mensaje">¿Qué necesitas resolver?</label>
+            <textarea id="c-mensaje" placeholder="Cuéntanos brevemente el proceso que quieres optimizar..."></textarea>
+          </div>
+          <button type="button" class="boton-primario contacto-boton">
+            Solicitar demo gratuita →
+          </button>
+          <p class="contacto-privacidad">
+            Al enviar aceptas nuestra política de privacidad. Sin spam.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PIE DE PÁGINA
+       ============================================================ -->
+  <footer class="pie">
+    <div class="contenedor">
+      <div class="pie-grid">
+
+        <!-- Columna 1: descripción -->
+        <div>
+          <!-- NOMBRE — cambia el texto aquí -->
+          <div class="pie-logo">Goliat</div>
+          <!-- DESCRIPCIÓN — cambia el texto aquí -->
+          <p class="pie-descripcion">
+            Software de gestión de procesos legales diseñado para
+            abogados y firmas que buscan eficiencia y control total.
+          </p>
+        </div>
+
+        <!-- Columna 2: enlaces del producto — cambia los hrefs y textos -->
+        <div>
+          <div class="pie-columna-titulo">Producto</div>
+          <ul class="pie-columna-lista">
+            <li><a href="#caracteristicas">Características</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#">Novedades</a></li>
+            <li><a href="#">Documentación</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: enlaces de empresa — cambia los hrefs y textos -->
+        <div>
+          <div class="pie-columna-titulo">Empresa</div>
+          <ul class="pie-columna-lista">
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Términos de uso</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Parte inferior del pie -->
+      <div class="pie-inferior">
+        <!-- COPYRIGHT — cambia el año y nombre aquí -->
+        <p class="pie-copyright">
+          © 2024 <span>Goliat</span>. Todos los derechos reservados.
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       BANNER DE COOKIES
+       ============================================================ -->
+  <div class="cookie-banner" id="cookie-banner">
+    <div class="cookie-contenido">
+      <div class="cookie-texto">
+        <h4>Usamos cookies 🍪</h4>
+        <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia en nuestra plataforma, analizar el tráfico y personalizar el contenido. Puedes aceptar todas las cookies o gestionar tus preferencias.</p>
+      </div>
+      <div class="cookie-botones">
+        <button class="cookie-boton cookie-rechazar" id="btn-rechazar-cookies">Rechazar</button>
+        <button class="cookie-boton cookie-aceptar" id="btn-aceptar-cookies">Aceptar todas</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/landing.js"></script>
+</body>
+
+</html>
