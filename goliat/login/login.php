@@ -5,14 +5,14 @@ include("../src/conexion.php");
 include("../clases/userClass.php");
 
 $errorMsgLogin = '';
+$dashboardUrl = '../sistema/index.html';
 
 // Si el usuario ya tiene sesión iniciada, lo redirigimos directamente al sistema
 if (!empty($_SESSION['id_usuario'])) {
-    $url = BASE_URL . 'sistema/index.html';
     $token = session_id();
     echo '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Redirigiendo…</title></head><body><script>';
     echo 'localStorage.setItem("auth_token", ' . json_encode($token) . ');';
-    echo 'window.location.replace(' . json_encode($url) . ');';
+    echo 'window.location.replace(' . json_encode($dashboardUrl) . ');';
     echo '</script></body></html>';
     exit();
 }
@@ -26,11 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (strlen($userID) > 1 && strlen($password) > 1) {
         $id_usuario = $userClass->userLogin($userID, $password);
         if ($id_usuario) {
-            $url = BASE_URL . 'sistema/index.html';
             $token = session_id();
             echo '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Redirigiendo…</title></head><body><script>';
             echo 'localStorage.setItem("auth_token", ' . json_encode($token) . ');';
-            echo 'window.location.replace(' . json_encode($url) . ');';
+            echo 'window.location.replace(' . json_encode($dashboardUrl) . ');';
             echo '</script></body></html>';
             exit();
         } else {

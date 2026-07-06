@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
 // Cargar variables de entorno desde .env (simplificado)
 $envFile = __DIR__ . '/../.env';
@@ -37,7 +39,25 @@ function parseDbUrl($url) {
     ];
 }
 
-define("BASE_URL", "http://localhost:8000/"); 
+function detectBaseUrl() {
+    if (PHP_SAPI === 'cli') {
+        return 'http://localhost:8000/';
+    }
+
+    $https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
+    $scheme = $https ? 'https' : 'http';
+    $host = $_SERVER['HTTP_HOST'] ?? 'localhost:8000';
+    $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+    $basePath = rtrim(str_replace('\\', '/', dirname(dirname($scriptName))), '/');
+
+    if ($basePath === '' || $basePath === '.') {
+        return $scheme . '://' . $host . '/';
+    }
+
+    return $scheme . '://' . $host . $basePath . '/';
+}
+
+define("BASE_URL", detectBaseUrl());
 
 function getDB() 
 {
@@ -53,7 +73,7 @@ function getDB()
         return $dbConnection;
     }
     catch (PDOException $e) {
-        echo 'Connection failed: ' . $e->getMessage();
+        throw $e;
     }
 }
 ?>
